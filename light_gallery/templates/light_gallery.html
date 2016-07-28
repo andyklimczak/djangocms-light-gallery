@@ -1,0 +1,43 @@
+{% load sekizai_tags thumbnail static %}
+{% addtoblock "css" %}
+  <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css'%}" />
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+  <script type="text/javascript" src="{% static 'js/lightgallery.min.js' %}"></script>
+{% endaddtoblock %}
+{% if thumbnails %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-thumbnail.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
+{% if zoom %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-zoom.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
+{% if fullscreen %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-fullscreen.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
+{% addtoblock "js" %}
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#light-gallery-{{ id }}").lightGallery({
+        {% if zoom %}
+          scale: {{ zoomScale }},
+        {% endif %}
+      });
+    });
+</script>
+{% endaddtoblock %}
+
+<div id="light-gallery-{{ id }}">
+  {% for image in images %}
+  <a href="{{MEDIA_URL}}{{ image.file }}"
+  >
+      <img src="{% thumbnail image.file 200x200 upscale %}"></img>
+    </a>
+  {% endfor %}
+</div>
