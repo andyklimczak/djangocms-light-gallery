@@ -25,8 +25,42 @@
 <script type="text/javascript">
     $(document).ready(function() {
       $("#light-gallery-{{ id }}").lightGallery({
+        mode: "{{ mode }}",
+        cssEasing: "{{ cssEasing }}",
+        easing: "{{ easing }}",
+        speed: {{ speed }},
+        height: "{{ height }}",
+        width: "{{ width }}",
+        addClass: "{{ addClass }}",
+        startClass: "{{ startClass }}",
+        backdropDuration: {{ backdropDuration }},
+        hideBarsDelay: {{ hideBarsDelay }},
+        useLeft: {{ useLeft|lower }},
+        closable: {{ closable|lower }},
+        loop: {{ loop|lower }},
+        escKey: {{ escKey|lower }},
+        keyPress: {{ keyPress|lower }},
+        controls: {{ controls|lower }},
+        slideEndAnimation: {{ slideEndAnimation|lower }},
+        hideControlOnEnd: {{ hideControlOnEnd|lower }},
+        mousewheel: {{ mousewheel|lower }},
+        preload: {{ preload }},
+        showAfterLoad: {{ showAfterLoad|lower }},
+        nextHtml: "{{ nextHtml }}",
+        prevHtml: "{{ prevHtml }}",
+        index: {{ index }},
+        iframeMaxWidth: "{{ iframeMaxWidth }}",
+        download: {{ download|lower }},
+        counter: {{ counter|lower }},
+        appendCounterTo: "{{ appendCounterTo }}",
+        swipeThreshold: {{ swipeThreshold }},
+        enableDrag: {{ enableDrag|lower }},
+        enableTouch: {{ enableTouch|lower }},
         {% if zoom %}
-          scale: {{ zoomScale }},
+        zoom: {{ zoom|lower }},
+        scale: {{ zoomScale }},
+        enableZoomAfter: {{ zoomEnableZoomAfter }},
+        actualSize: {{ zoomActualSize|lower }},
         {% endif %}
       });
     });
