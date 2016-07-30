@@ -21,6 +21,11 @@
     <script type="text/javascript" src="{% static 'js/lg-fullscreen.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
+{% if pager %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-pager.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
 {% addtoblock "js" %}
 <script type="text/javascript">
     $(document).ready(function() {
@@ -56,6 +61,19 @@
         swipeThreshold: {{ swipeThreshold }},
         enableDrag: {{ enableDrag|lower }},
         enableTouch: {{ enableTouch|lower }},
+        {% if thumbnails %}
+        thumbnail: {{ thumbnails|lower }},
+        anaimateThumb: {{ animateThumb|lower }},
+        currentPagerPosition: "{{ currentPagerPosition }}",
+        thumbWidth: {{ thumbWidth }},
+        thumbContHeight: {{ thumbContHeight }},
+        thumbMargin: {{ thumbMargin }},
+        toogleThumb: {{ toggleThumb|lower }},
+        pullCaptionUp: {{ pullCaptionUp|lower }},
+        enableThumbDrag: {{ enableThumbDrag|lower }},
+        enableThumbSwipe: {{ enableThumbSwipe|lower }},
+        swipeThreshold: {{ swipeThreshold }},
+        {% endif %}
         {% if zoom %}
         zoom: {{ zoom|lower }},
         scale: {{ zoomScale }},

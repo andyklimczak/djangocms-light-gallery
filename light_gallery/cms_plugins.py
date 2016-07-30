@@ -53,16 +53,26 @@ class LightGallery(CMSPluginBase):
                 'enableTouch',
             ]
         }),
-        (_('Fullscreen'), {
-            'classes': ['collapse', ],
-            'fields': [
-                'fullscreen',
-            ]
-        }),
         (_('Thumbnails'), {
             'classes': ['collapse', ],
             'fields': [
                 'thumbnails',
+                'animateThumb',
+                'currentPagerPosition',
+                'thumbWidth',
+                'thumbContHeight',
+                'thumbMargin',
+                'toggleThumb',
+                'pullCaptionUp',
+                'enableThumbDrag',
+                'enableThumbSwipe',
+                'swipeThreshold',
+            ]
+        }),
+        (_('Fullscreen'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'fullscreen',
             ]
         }),
         (_('Zoom'), {
@@ -72,6 +82,12 @@ class LightGallery(CMSPluginBase):
                 'zoomScale',
                 'zoomEnableZoomAfter',
                 'zoomActualSize',
+            ]
+        }),
+        (_('Pager'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'pager',
             ]
         }),
     )
@@ -110,13 +126,24 @@ class LightGallery(CMSPluginBase):
             'swipeThreshold': instance.swipeThreshold,
             'enableDrag': instance.enableDrag,
             'enableTouch': instance.enableTouch,
+            'thumbnails': instance.thumbnails,
+            'animateThumb': instance.animateThumb,
+            'currentPagerPosition': instance.currentPagerPosition,
+            'thumbWidth': instance.thumbWidth,
+            'thumbContHeight': instance.thumbContHeight,
+            'thumbMargin': instance.thumbMargin,
+            'toggleThumb': instance.toggleThumb,
+            'pullCaptionUp': instance.pullCaptionUp,
+            'enableThumbDrag': instance.enableThumbDrag,
+            'enableThumbSwipe': instance.enableThumbSwipe,
+            'swipeThreshold': instance.swipeThreshold,
             'id': instance.generate_id(),
             'fullscreen': instance.fullscreen,
-            'thumbnails': instance.thumbnails,
             'zoom': instance.zoom,
             'zoomScale': instance.zoomScale,
             'zoomEnableZoomAfter': instance.zoomEnableZoomAfter,
             'zoomActualSize': instance.zoomActualSize,
+            'pager': instance.pager,
         });
         return context
 

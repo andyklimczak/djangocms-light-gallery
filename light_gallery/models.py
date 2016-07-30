@@ -6,6 +6,7 @@ from filer.models.imagemodels import Image
 import uuid
 
 MODES = [['lg-slide', 'lg-slide'], ['lg-fade', 'lg-fade'], ['lg-zoom-in', 'lg-zoom-in'], ['lg-zoom-in-big', 'lg-zoom-in-big'], ['lg-zoom-out', 'lg-zoom-out'], ['lg-zoom-out-big', 'lg-zoom-out-big'], ['lg-zoom-out-in', 'lg-zoom-out-in'], ['lg-zoom-in-out', 'lg-zoom-in-out'], ['lg-soft-zoom', 'lg-soft-zoom'], ['lg-scale-up', 'lg-scale-up'], ['lg-slide-circular', 'lg-slide-circular'], ['lg-slide-circular-vertical', 'lg-slide-circular-vertical'], ['lg-slide-vertical', 'lg-slide-vertical'], ['lg-slide-vertical-growth', 'lg-slide-vertical-growth'], ['lg-slide-skew-only', 'lg-slide-skew-only'], ['lg-slide-skew-only-rev', 'lg-slide-skew-only-rev'], ['lg-slide-skew-only-y', 'lg-slide-skew-only-y'], ['lg-slide-skew-only-y-rev', 'lg-slide-skew-only-y-rev'], ['lg-slide-skew', 'lg-slide-skew'], ['lg-slide-skew-rev', 'lg-slide-skew-rev'], ['lg-slide-skew-cross', 'lg-slide-skew-cross'], ['lg-slide-skew-cross-rev', 'lg-slide-skew-cross-rev'], ['lg-slide-skew-ver', 'lg-slide-skew-ver'], ['lg-slide-skew-ver-rev', 'lg-slide-skew-ver-rev'], ['lg-slide-skew-ver-cross', 'lg-slide-skew-ver-cross'], ['lg-slide-skew-ver-cross-rev', 'lg-slide-skew-ver-cross-rev'], ['lg-lollipop', 'lg-lollipop'], ['lg-lollipop-rev', 'lg-lollipop-rev'], ['lg-rotate', 'lg-rotate'], ['lg-rotate-rev', 'lg-rotate-rev'], ['lg-tube', 'lg-tube']]
+CURRENT_PAGER_POSITIONS = [['left', 'Left'], ['middle', 'Middle'], ['right', 'Right']]
 
 class LightGallery(CMSPlugin):
     folder = FilerFolderField(
@@ -44,6 +45,18 @@ class LightGallery(CMSPlugin):
     enableDrag = models.BooleanField(_("Enable Drag"), default=True, help_text=_("Enables desktop mouse drag support"))
     enableTouch = models.BooleanField(_("Enable Touch"), default=True, help_text=_("Enables touch support"))
 
+    thumbnails = models.BooleanField(_("Enable Thumbnails"), default=True, help_text=_("Enable/disable thumbnails for this gallery"))
+    animateThumb = models.BooleanField(_("Enable Thumbnail Animation "), default=True)
+    currentPagerPosition = models.CharField(_("Current Pager Position"), choices=CURRENT_PAGER_POSITIONS, max_length=255, default=CURRENT_PAGER_POSITIONS[1][0], help_text=_("Position of selected thumbnail"))
+    thumbWidth = models.PositiveIntegerField(_("Thumb Width"), default=100, help_text=_("Width of each thumbnails"))
+    thumbContHeight = models.PositiveIntegerField(_("Thumb Container Height"), default=100, help_text=_("Height of the thumbnail container including padding and border"))
+    thumbMargin = models.PositiveIntegerField(_("Thumb Margin"), default=5, help_text=_("Spacing between each thumbnails"))
+    toggleThumb = models.BooleanField(_("Toggle Thumbnail Button"), default=True, help_text=_("Whether to display thumbnail toggle button"))
+    pullCaptionUp = models.BooleanField(_("Pull Captions Up"), default=True, help_text=_("Pull captions above thumbnails"))
+    enableThumbDrag = models.BooleanField(_("Enable Thumbnail Drag"), default=True, help_text=_("Enables desktop mouse drag support for thumbnails"))
+    enableThumbSwipe = models.BooleanField(_("Enable Thumbnail Swipe"), default=True, help_text=_("Enables thumbnail touch/swipe support for touch devices"))
+    swipeThreshold = models.PositiveIntegerField(_("Swipe Threshold"), default=50, help_text=_("By setting the swipeThreshold (in px) you can set how far the user must swipe for the next/prev slide"))
+
     zoom = models.BooleanField(_("Enable Zoom"), default=False, help_text=_("Enable/disable zoom for this gallery"))
     zoomScale = models.PositiveIntegerField(_("Scale"), default=1, help_text=_("Value of zoom should be incremented/decremented"))
     zoomEnableZoomAfter = models.PositiveIntegerField(_("Enable Zoom After"), default=50, help_text=_("Number in ms"))
@@ -51,7 +64,8 @@ class LightGallery(CMSPlugin):
 
     fullscreen = models.BooleanField(_("Enable Fullscreen"), default=False, help_text=_("Enable/disable fullscreen for this gallery"))
 
-    thumbnails = models.BooleanField(_("Enable Thumbnails"), default=False, help_text=_("Enable/disable thumbnails for this gallery"))
+    pager = models.BooleanField(_("Enable Pager"), default=False, help_text=_("Enable/disable pager for this gallery"))
+
 
     def get_folder_images(self):
         images = self.folder.files.instance_of(Image)
