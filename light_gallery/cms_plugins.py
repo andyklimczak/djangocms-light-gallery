@@ -15,6 +15,8 @@ class LightGallery(CMSPluginBase):
         (None, {
             'fields': [
                 'folder',
+                'pageThumbWidth',
+                'pageThumbHeight',
             ]
         }),
         (_('Core'), {
@@ -53,7 +55,7 @@ class LightGallery(CMSPluginBase):
                 'enableTouch',
             ]
         }),
-        (_('Thumbnails'), {
+        (_('Gallery Thumbnails'), {
             'classes': ['collapse', ],
             'fields': [
                 'thumbnails',
@@ -90,11 +92,19 @@ class LightGallery(CMSPluginBase):
                 'pager',
             ]
         }),
+        (_('Hash'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'hash',
+                'galleryId',
+            ]
+        }),
     )
 
     def render(self, context, instance, placeholder):
         context.update({
             'images': instance.get_folder_images(),
+            'pageThumbWidthHeight': instance.parse_page_thumb_width_height(),
             'mode': instance.mode,
             'cssEasing': instance.cssEasing,
             'easing': instance.easing,
@@ -144,6 +154,8 @@ class LightGallery(CMSPluginBase):
             'zoomEnableZoomAfter': instance.zoomEnableZoomAfter,
             'zoomActualSize': instance.zoomActualSize,
             'pager': instance.pager,
+            'hash': instance.hash,
+            'galleryId': instance.galleryId,
         });
         return context
 

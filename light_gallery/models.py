@@ -12,6 +12,8 @@ class LightGallery(CMSPlugin):
     folder = FilerFolderField(
         verbose_name=_('Folder')
     )
+    pageThumbWidth = models.CharField(_("Page Thumb Width"), max_length=255, default="150", help_text=_("Width of thumbnail on page"))
+    pageThumbHeight = models.CharField(_("Page Thumb Height"), max_length=255, default="150", help_text=_("Height of thumbnail on page"))
 
     mode = models.CharField(_("Mode"), choices=MODES, default=MODES[0], help_text=_("Type of transition between images"), max_length=255)
     cssEasing = models.CharField(_("CSS Easing"), max_length=255, default="ease", help_text=_("Type of easing to be used for css animations"))
@@ -66,6 +68,8 @@ class LightGallery(CMSPlugin):
 
     pager = models.BooleanField(_("Enable Pager"), default=False, help_text=_("Enable/disable pager for this gallery"))
 
+    hash = models.BooleanField(_("Enable Hash"), default=False, help_text=_("Enable/Disable hash plugin"))
+    galleryId = models.PositiveIntegerField(_("Gallery Id"), default=1, help_text=("Unique id for each gallery. It is mandatory when you use hash plugin for multiple galleries on the same page"))
 
     def get_folder_images(self):
         images = self.folder.files.instance_of(Image)
@@ -73,3 +77,6 @@ class LightGallery(CMSPlugin):
 
     def generate_id(self):
         return str(uuid.uuid4().fields[-1])[:7]
+
+    def parse_page_thumb_width_height(self):
+        return "%sx%s" % (self.pageThumbWidth, self.pageThumbHeight)

@@ -26,6 +26,11 @@
     <script type="text/javascript" src="{% static 'js/lg-pager.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
+{% if hash %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-hash.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
 {% addtoblock "js" %}
 <script type="text/javascript">
     $(document).ready(function() {
@@ -87,9 +92,8 @@
 
 <div id="light-gallery-{{ id }}">
   {% for image in images %}
-  <a href="{{MEDIA_URL}}{{ image.file }}"
-  >
-      <img src="{% thumbnail image.file 200x200 upscale %}"></img>
+  <a href="{{MEDIA_URL}}{{ image.file }}">
+      <img src="{% thumbnail image.file pageThumbWidthHeight upscale %}"></img>
     </a>
   {% endfor %}
 </div>
