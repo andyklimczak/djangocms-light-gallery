@@ -15,8 +15,8 @@ class LightGallery(CMSPluginBase):
         (None, {
             'fields': [
                 'folder',
-                'pageThumbWidth',
-                'pageThumbHeight',
+                ('pageThumbWidth',
+                'pageThumbHeight',),
             ]
         }),
         (_('Core'), {
