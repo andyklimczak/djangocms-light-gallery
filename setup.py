@@ -9,7 +9,7 @@ setup(name='djangocms-light-gallery',
       license='MIT',
       packages=find_packages(),
       install_requires=[
-          'django>=1.6',
+          'django>=1.8',
           'django-cms>=3.0',
           'django-filer',
           'django-sekizai',

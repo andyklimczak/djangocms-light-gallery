@@ -8,7 +8,7 @@ from .models import LightGallery
 class LightGallery(CMSPluginBase):
     model = LightGallery
     name = _("Light Gallery")
-    render_template = "light_gallery.html"
+    render_template = "templates/light_gallery.html"
     cache = False
 
     fieldsets = (
