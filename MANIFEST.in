@@ -1,0 +1,2 @@
+include README.md LICENSE
+recursive-include light_gallery *.py *.html *.js manifest
