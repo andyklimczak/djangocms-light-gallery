@@ -1,6 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/djangocms-light-gallery.svg)](https://badge.fury.io/py/djangocms-light-gallery)
 
 DjangoCMS plugin for [Light Gallery 1.2.x](https://github.com/sachinchoolur/lightGallery)
+[Example with default settings](https://andy-djangocms-test.herokuapp.com/light-gallery/)
 
 # Installation
 
