@@ -33,67 +33,67 @@
 {% endif %}
 {% addtoblock "js" %}
 <script type="text/javascript">
-    $(document).ready(function() {
-      $("#light-gallery-{{ id }}").lightGallery({
-        mode: "{{ mode }}",
-        cssEasing: "{{ cssEasing }}",
-        easing: "{{ easing }}",
-        speed: {{ speed }},
-        height: "{{ height }}",
-        width: "{{ width }}",
-        addClass: "{{ addClass }}",
-        startClass: "{{ startClass }}",
-        backdropDuration: {{ backdropDuration }},
-        hideBarsDelay: {{ hideBarsDelay }},
-        useLeft: {{ useLeft|lower }},
-        closable: {{ closable|lower }},
-        loop: {{ loop|lower }},
-        escKey: {{ escKey|lower }},
-        keyPress: {{ keyPress|lower }},
-        controls: {{ controls|lower }},
-        slideEndAnimation: {{ slideEndAnimation|lower }},
-        hideControlOnEnd: {{ hideControlOnEnd|lower }},
-        mousewheel: {{ mousewheel|lower }},
-        preload: {{ preload }},
-        showAfterLoad: {{ showAfterLoad|lower }},
-        nextHtml: "{{ nextHtml }}",
-        prevHtml: "{{ prevHtml }}",
-        index: {{ index }},
-        iframeMaxWidth: "{{ iframeMaxWidth }}",
-        download: {{ download|lower }},
-        counter: {{ counter|lower }},
-        appendCounterTo: "{{ appendCounterTo }}",
-        swipeThreshold: {{ swipeThreshold }},
-        enableDrag: {{ enableDrag|lower }},
-        enableTouch: {{ enableTouch|lower }},
-        {% if thumbnails %}
-        thumbnail: {{ thumbnails|lower }},
-        anaimateThumb: {{ animateThumb|lower }},
-        currentPagerPosition: "{{ currentPagerPosition }}",
-        thumbWidth: {{ thumbWidth }},
-        thumbContHeight: {{ thumbContHeight }},
-        thumbMargin: {{ thumbMargin }},
-        toogleThumb: {{ toggleThumb|lower }},
-        pullCaptionUp: {{ pullCaptionUp|lower }},
-        enableThumbDrag: {{ enableThumbDrag|lower }},
-        enableThumbSwipe: {{ enableThumbSwipe|lower }},
-        swipeThreshold: {{ swipeThreshold }},
-        {% endif %}
-        {% if zoom %}
-        zoom: {{ zoom|lower }},
-        scale: {{ zoomScale }},
-        enableZoomAfter: {{ zoomEnableZoomAfter }},
-        actualSize: {{ zoomActualSize|lower }},
-        {% endif %}
-      });
+  $(document).ready(function() {
+    $("#light-gallery-{{ id }}").lightGallery({
+      mode: "{{ mode }}",
+      cssEasing: "{{ cssEasing }}",
+      easing: "{{ easing }}",
+      speed: {{ speed }},
+      height: "{{ height }}",
+      width: "{{ width }}",
+      addClass: "{{ addClass }}",
+      startClass: "{{ startClass }}",
+      backdropDuration: {{ backdropDuration }},
+      hideBarsDelay: {{ hideBarsDelay }},
+      useLeft: {{ useLeft|lower }},
+      closable: {{ closable|lower }},
+      loop: {{ loop|lower }},
+      escKey: {{ escKey|lower }},
+      keyPress: {{ keyPress|lower }},
+      controls: {{ controls|lower }},
+      slideEndAnimation: {{ slideEndAnimation|lower }},
+      hideControlOnEnd: {{ hideControlOnEnd|lower }},
+      mousewheel: {{ mousewheel|lower }},
+      preload: {{ preload }},
+      showAfterLoad: {{ showAfterLoad|lower }},
+      nextHtml: "{{ nextHtml }}",
+      prevHtml: "{{ prevHtml }}",
+      index: {{ index }},
+      iframeMaxWidth: "{{ iframeMaxWidth }}",
+      download: {{ download|lower }},
+      counter: {{ counter|lower }},
+      appendCounterTo: "{{ appendCounterTo }}",
+      swipeThreshold: {{ swipeThreshold }},
+      enableDrag: {{ enableDrag|lower }},
+      enableTouch: {{ enableTouch|lower }},
+      {% if thumbnails %}
+      thumbnail: {{ thumbnails|lower }},
+      anaimateThumb: {{ animateThumb|lower }},
+      currentPagerPosition: "{{ currentPagerPosition }}",
+      thumbWidth: {{ thumbWidth }},
+      thumbContHeight: {{ thumbContHeight }},
+      thumbMargin: {{ thumbMargin }},
+      toogleThumb: {{ toggleThumb|lower }},
+      pullCaptionUp: {{ pullCaptionUp|lower }},
+      enableThumbDrag: {{ enableThumbDrag|lower }},
+      enableThumbSwipe: {{ enableThumbSwipe|lower }},
+      swipeThreshold: {{ swipeThreshold }},
+      {% endif %}
+      {% if zoom %}
+      zoom: {{ zoom|lower }},
+      scale: {{ zoomScale }},
+      enableZoomAfter: {{ zoomEnableZoomAfter }},
+      actualSize: {{ zoomActualSize|lower }},
+      {% endif %}
     });
+  });
 </script>
 {% endaddtoblock %}
 
 <div id="light-gallery-{{ id }}">
   {% for image in images %}
-  <a href="{{MEDIA_URL}}{{ image.file }}">
-      <img src="{% thumbnail image.file pageThumbWidthHeight upscale %}"></img>
+    <a href="{{MEDIA_URL}}{{ image.file }}">
+        <img src="{% thumbnail image.file pageThumbWidthHeight upscale %}"></img>
     </a>
   {% endfor %}
 </div>
