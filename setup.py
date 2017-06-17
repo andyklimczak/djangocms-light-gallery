@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='djangocms-light-gallery',
-      version='0.0.1',
+      version='0.0.2',
       description='Light Gallery plugin for django CMS',
       url='https://github.com/andyklimczak/djangocms-light-gallery',
       author='Andy Klimczak',
@@ -9,7 +9,7 @@ setup(name='djangocms-light-gallery',
       license='MIT',
       packages=find_packages(),
       include_package_data=True,
-      long_description=open('README.md').read(),
+      long_description=open('README.rst').read(),
       install_requires=[
           'django>=1.8',
           'django-cms>=3.0',
