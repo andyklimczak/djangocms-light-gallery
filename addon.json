@@ -1,0 +1,6 @@
+{
+    "package-name": "djangocms-light-gallery",
+    "installed-apps": [
+        "djangocms_light_gallery"
+    ]
+}
