@@ -1,2 +1,2 @@
 include README.rst LICENSE
-recursive-include light_gallery *.py *.html *.css *.js *.eot *.svg *.ttf *.woff manifest
+recursive-include light_gallery *.py *.html *.css *.js *.eot *.svg *.ttf *.woff *.gif *.png manifest
