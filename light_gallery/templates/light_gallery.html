@@ -1,10 +1,16 @@
 {% load sekizai_tags thumbnail static %}
 {% addtoblock "css" %}
-  <link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css'%}" />
+<link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.min.css'%}" />
+{% endaddtoblock %}
+{% addtoblock "css" %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/lg-transitions.min.css'%}" />
+{% endaddtoblock %}
+{% addtoblock "css" %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/lg-fb-comment-box.min.css'%}" />
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-  <script type="text/javascript" src="{% static 'js/lightgallery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lightgallery.min.js' %}"></script>
 {% endaddtoblock %}
 {% if thumbnails %}
   {% addtoblock "js" %}
@@ -31,6 +37,12 @@
     <script type="text/javascript" src="{% static 'js/lg-hash.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
+{% if share %}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'js/lg-share.min.js' %}"></script>
+  {% endaddtoblock %}
+{% endif %}
+
 {% addtoblock "js" %}
 <script type="text/javascript">
   $(document).ready(function() {
@@ -65,7 +77,7 @@
       appendCounterTo: "{{ appendCounterTo }}",
       swipeThreshold: {{ swipeThreshold }},
       enableDrag: {{ enableDrag|lower }},
-      enableTouch: {{ enableTouch|lower }},
+      enableSwipe: {{ enableSwipe|lower }},
       {% if thumbnails %}
       thumbnail: {{ thumbnails|lower }},
       anaimateThumb: {{ animateThumb|lower }},
@@ -73,6 +85,7 @@
       thumbWidth: {{ thumbWidth }},
       thumbContHeight: {{ thumbContHeight }},
       thumbMargin: {{ thumbMargin }},
+      showThumbByDefault: {{ showThumbByDefault|lower }},
       toogleThumb: {{ toggleThumb|lower }},
       pullCaptionUp: {{ pullCaptionUp|lower }},
       enableThumbDrag: {{ enableThumbDrag|lower }},
@@ -85,6 +98,17 @@
       enableZoomAfter: {{ zoomEnableZoomAfter }},
       actualSize: {{ zoomActualSize|lower }},
       {% endif %}
+      {% if share %}
+      share: {{ share|lower }},
+      facebook: {{ facebook|lower }},
+      facebookDropdownText: "{{ facebookDropdownText }}",
+      twitter: {{ twitter|lower }},
+      twitterDropdownText: "{{ twitterDropdownText }}",
+      googlePlus: {{ googlePlus|lower }},
+      googlePlusDropdownText: "{{ googlePlusDropdownText }}",
+      pinterest: {{ pinterest|lower }},
+      pinterestDropdownText: "{{ pinterestDropdownText }}",
+      {% endif %}
     });
   });
 </script>
@@ -92,8 +116,8 @@
 
 <div id="light-gallery-{{ id }}">
   {% for image in images %}
-    <a href="{{MEDIA_URL}}{{ image.file }}">
-        <img src="{% thumbnail image.file pageThumbWidthHeight upscale %}"></img>
-    </a>
+  <a href="{{MEDIA_URL}}{{ image.file }}">
+    <img src="{% thumbnail image.file pageThumbWidthHeight upscale %}"></img>
+  </a>
   {% endfor %}
 </div>

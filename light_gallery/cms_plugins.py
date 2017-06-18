@@ -52,7 +52,7 @@ class LightGallery(CMSPluginBase):
                 'appendCounterTo',
                 'swipeThreshold',
                 'enableDrag',
-                'enableTouch',
+                'enableSwipe',
             ]
         }),
         (_('Gallery Thumbnails'), {
@@ -64,6 +64,7 @@ class LightGallery(CMSPluginBase):
                 'thumbWidth',
                 'thumbContHeight',
                 'thumbMargin',
+                'showThumbByDefault',
                 'toggleThumb',
                 'pullCaptionUp',
                 'enableThumbDrag',
@@ -97,6 +98,20 @@ class LightGallery(CMSPluginBase):
             'fields': [
                 'hash',
                 'galleryId',
+            ]
+        }),
+        (_('Share'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'share',
+                'facebook',
+                'facebookDropdownText',
+                'twitter',
+                'twitterDropdownText',
+                'googlePlus',
+                'googlePlusDropdownText',
+                'pinterest',
+                'pinterestDropdownText',
             ]
         }),
     )
@@ -135,13 +150,14 @@ class LightGallery(CMSPluginBase):
             'appendCounterTo': instance.appendCounterTo,
             'swipeThreshold': instance.swipeThreshold,
             'enableDrag': instance.enableDrag,
-            'enableTouch': instance.enableTouch,
+            'enableSwipe': instance.enableSwipe,
             'thumbnails': instance.thumbnails,
             'animateThumb': instance.animateThumb,
             'currentPagerPosition': instance.currentPagerPosition,
             'thumbWidth': instance.thumbWidth,
             'thumbContHeight': instance.thumbContHeight,
             'thumbMargin': instance.thumbMargin,
+            'showThumbByDefault': instance.showThumbByDefault,
             'toggleThumb': instance.toggleThumb,
             'pullCaptionUp': instance.pullCaptionUp,
             'enableThumbDrag': instance.enableThumbDrag,
@@ -156,6 +172,15 @@ class LightGallery(CMSPluginBase):
             'pager': instance.pager,
             'hash': instance.hash,
             'galleryId': instance.galleryId,
+            'share': instance.share,
+            'facebook': instance.facebook,
+            'facebookDropdownText': instance.facebookDropdownText,
+            'twitter': instance.twitter,
+            'twitterDropdownText': instance.twitterDropdownText,
+            'googlePlus': instance.googlePlus,
+            'googlePlusDropdownText': instance.googlePlusDropdownText,
+            'pinterest': instance.pinterest,
+            'pinterestDropdownText': instance.pinterestDropdownText,
         });
         return context
 

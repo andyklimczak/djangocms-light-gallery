@@ -45,7 +45,7 @@ class LightGallery(CMSPlugin):
     appendCounterTo = models.CharField(_("Append Counter To"), max_length=255, default=".lg-toolbar", help_text=_("Where the counter should be appended"))
     swipeThreshold = models.PositiveIntegerField(_("Swipe Threshold"), default=50, help_text=_("By setting the swipeThreshold (in px) you can set how far the user must swipe for the next/prev image"))
     enableDrag = models.BooleanField(_("Enable Drag"), default=True, help_text=_("Enables desktop mouse drag support"))
-    enableTouch = models.BooleanField(_("Enable Touch"), default=True, help_text=_("Enables touch support"))
+    enableSwipe = models.BooleanField(_("Enable Swipe"), default=True, help_text=_("Enables swipe support"))
 
     thumbnails = models.BooleanField(_("Enable Thumbnails"), default=True, help_text=_("Enable/disable thumbnails for this gallery"))
     animateThumb = models.BooleanField(_("Enable Thumbnail Animation "), default=True)
@@ -53,6 +53,7 @@ class LightGallery(CMSPlugin):
     thumbWidth = models.PositiveIntegerField(_("Thumb Width"), default=100, help_text=_("Width of each thumbnails"))
     thumbContHeight = models.PositiveIntegerField(_("Thumb Container Height"), default=100, help_text=_("Height of the thumbnail container including padding and border"))
     thumbMargin = models.PositiveIntegerField(_("Thumb Margin"), default=5, help_text=_("Spacing between each thumbnails"))
+    showThumbByDefault = models.BooleanField(_("Show/Hide thumbnails by default"), default=True)
     toggleThumb = models.BooleanField(_("Toggle Thumbnail Button"), default=True, help_text=_("Whether to display thumbnail toggle button"))
     pullCaptionUp = models.BooleanField(_("Pull Captions Up"), default=True, help_text=_("Pull captions above thumbnails"))
     enableThumbDrag = models.BooleanField(_("Enable Thumbnail Drag"), default=True, help_text=_("Enables desktop mouse drag support for thumbnails"))
@@ -70,6 +71,16 @@ class LightGallery(CMSPlugin):
 
     hash = models.BooleanField(_("Enable Hash"), default=False, help_text=_("Enable/Disable hash plugin"))
     galleryId = models.PositiveIntegerField(_("Gallery Id"), default=1, help_text=("Unique id for each gallery. It is mandatory when you use hash plugin for multiple galleries on the same page"))
+
+    share = models.BooleanField(_("Enable/Disable share plugin"), default=True)
+    facebook = models.BooleanField(_("Enable Facebook share"), default=True)
+    facebookDropdownText = models.CharField(_("Facebook dropdown text"), default="Facebook", max_length=255)
+    twitter = models.BooleanField(_("Enable Twitter share"), default=True)
+    twitterDropdownText = models.CharField(_("Twitter dropdown text"), default="Twitter", max_length=255)
+    googlePlus = models.BooleanField(_("Enable googlePlus share"), default=True)
+    googlePlusDropdownText = models.CharField(_("GooglePlus dropdown text"), default="GooglePlus", max_length=255)
+    pinterest = models.BooleanField(_("Enable Pinterest share"), default=True)
+    pinterestDropdownText = models.CharField(_("Pinterest dropdown text"), default="Pinterest", max_length=255)
 
     def get_folder_images(self):
         images = self.folder.files.instance_of(Image)

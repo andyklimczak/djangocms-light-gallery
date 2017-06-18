@@ -1,7 +1,7 @@
 |PyPI version|
 
 DjangoCMS plugin for `Light Gallery
-1.2.x <https://github.com/sachinchoolur/lightGallery>`__
+1.4.0 <https://github.com/sachinchoolur/lightGallery>`__
 
 `Example with default
 settings <https://andy-djangocms-test.herokuapp.com/light-gallery/>`__
