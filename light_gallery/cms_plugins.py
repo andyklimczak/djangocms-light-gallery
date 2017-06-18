@@ -64,6 +64,7 @@ class LightGallery(CMSPluginBase):
                 'thumbWidth',
                 'thumbContHeight',
                 'thumbMargin',
+                'showThumbByDefault',
                 'toggleThumb',
                 'pullCaptionUp',
                 'enableThumbDrag',
