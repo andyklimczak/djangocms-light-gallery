@@ -23,6 +23,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='lightgallery',
             name='cmsplugin_ptr',
-            field=models.OneToOneField(related_name='light_gallery_lightgallery', serialize=False, to='cms.CMSPlugin', primary_key=True, parent_link=True, auto_created=True),
+            field=models.OneToOneField(related_name='light_gallery_lightgallery', on_delete=models.CASCADE, serialize=False, to='cms.CMSPlugin', primary_key=True, parent_link=True, auto_created=True),
         ),
     ]
