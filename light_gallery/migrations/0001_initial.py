@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='LightGallery',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(to='cms.CMSPlugin', parent_link=True, primary_key=True, auto_created=True, serialize=False)),
+                ('cmsplugin_ptr', models.OneToOneField(to='cms.CMSPlugin', on_delete=models.CASCADE, parent_link=True, primary_key=True, auto_created=True, serialize=False)),
                 ('folder', filer.fields.folder.FilerFolderField(to='filer.Folder', verbose_name='Folder')),
             ],
             options={
