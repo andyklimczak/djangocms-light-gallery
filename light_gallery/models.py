@@ -10,7 +10,8 @@ CURRENT_PAGER_POSITIONS = [['left', 'Left'], ['middle', 'Middle'], ['right', 'Ri
 
 class LightGallery(CMSPlugin):
     folder = FilerFolderField(
-        verbose_name=_('Folder')
+        verbose_name=_('Folder'),
+        on_delete=models.CASCADE,
     )
     pageThumbWidth = models.CharField(_("Page Thumb Width"), max_length=255, default="150", help_text=_("Width of thumbnail on page"))
     pageThumbHeight = models.CharField(_("Page Thumb Height"), max_length=255, default="150", help_text=_("Height of thumbnail on page"))
