@@ -9,7 +9,7 @@ class LightGallery(CMSPluginBase):
     model = LightGallery
     name = _("Light Gallery")
     render_template = "light_gallery.html"
-    cache = False
+    cache = True
 
     fieldsets = (
         (None, {
