@@ -113,7 +113,7 @@
 </script>
 {% endaddtoblock %}
 
-<div id="light-gallery-{{ id }}">
+<div id="light-gallery-{{ id }}" class="light-gallery-plugin">
   {% for image in images %}
   <a href="{{MEDIA_URL}}{{ image.file }}">
     <img src="{% thumbnail image.file pageThumbWidthHeight upscale crop %}"></img>
