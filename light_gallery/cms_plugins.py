@@ -1,9 +1,9 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cms.models.pluginmodel import CMSPlugin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import LightGallery
+
 
 class LightGallery(CMSPluginBase):
     model = LightGallery
@@ -19,11 +19,49 @@ class LightGallery(CMSPluginBase):
                 'pageThumbHeight',),
             ]
         }),
+        (_('Toolbar Settings'), {
+            'fields': [
+                'zoomActualSize',
+                'fullscreen',
+                'zoom',
+            ]
+        }),
+        (_('Gallery Thumbnails'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'thumbnails',
+                'animateThumb',
+                'currentPagerPosition',
+                'thumbWidth',
+                'thumbContHeight',
+                'thumbMargin',
+                'showThumbByDefault',
+                'toggleThumb',
+                'pullCaptionUp',
+                'enableThumbDrag',
+                'enableThumbSwipe',
+                'swipeThreshold',
+            ]
+        }),
+        (_('Social Networks Sharing'), {
+            'classes': ['collapse', ],
+            'fields': [
+                'share',
+                'facebook',
+                'facebookDropdownText',
+                'twitter',
+                'twitterDropdownText',
+                'googlePlus',
+                'googlePlusDropdownText',
+                'pinterest',
+                'pinterestDropdownText',
+            ]
+        }),
         (_('Core'), {
             'classes': ['collapse', ],
             'fields': [
                 'mode',
-		'cssEasing',
+                'cssEasing',
                 'easing',
                 'speed',
                 'height',
@@ -55,36 +93,11 @@ class LightGallery(CMSPluginBase):
                 'enableSwipe',
             ]
         }),
-        (_('Gallery Thumbnails'), {
-            'classes': ['collapse', ],
-            'fields': [
-                'thumbnails',
-                'animateThumb',
-                'currentPagerPosition',
-                'thumbWidth',
-                'thumbContHeight',
-                'thumbMargin',
-                'showThumbByDefault',
-                'toggleThumb',
-                'pullCaptionUp',
-                'enableThumbDrag',
-                'enableThumbSwipe',
-                'swipeThreshold',
-            ]
-        }),
-        (_('Fullscreen'), {
-            'classes': ['collapse', ],
-            'fields': [
-                'fullscreen',
-            ]
-        }),
         (_('Zoom'), {
             'classes': ['collapse', ],
             'fields': [
-                'zoom',
                 'zoomScale',
                 'zoomEnableZoomAfter',
-                'zoomActualSize',
             ]
         }),
         (_('Pager'), {
@@ -98,20 +111,6 @@ class LightGallery(CMSPluginBase):
             'fields': [
                 'hash',
                 'galleryId',
-            ]
-        }),
-        (_('Share'), {
-            'classes': ['collapse', ],
-            'fields': [
-                'share',
-                'facebook',
-                'facebookDropdownText',
-                'twitter',
-                'twitterDropdownText',
-                'googlePlus',
-                'googlePlusDropdownText',
-                'pinterest',
-                'pinterestDropdownText',
             ]
         }),
     )

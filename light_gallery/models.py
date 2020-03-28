@@ -61,12 +61,12 @@ class LightGallery(CMSPlugin):
     enableThumbSwipe = models.BooleanField(_("Enable Thumbnail Swipe"), default=True, help_text=_("Enables thumbnail touch/swipe support for touch devices"))
     swipeThreshold = models.PositiveIntegerField(_("Swipe Threshold"), default=50, help_text=_("By setting the swipeThreshold (in px) you can set how far the user must swipe for the next/prev slide"))
 
-    zoom = models.BooleanField(_("Enable Zoom"), default=False, help_text=_("Enable/disable zoom for this gallery"))
+    zoom = models.BooleanField(_("Enable Zoom Buttons"), default=False)
     zoomScale = models.PositiveIntegerField(_("Scale"), default=1, help_text=_("Value of zoom should be incremented/decremented"))
     zoomEnableZoomAfter = models.PositiveIntegerField(_("Enable Zoom After"), default=50, help_text=_("Number in ms"))
-    zoomActualSize = models.BooleanField(_("Actual Size"), default=False, help_text=_("Enable actual pixel icon"))
+    zoomActualSize = models.BooleanField(_("Enable Actual Size Button"), default=True)
 
-    fullscreen = models.BooleanField(_("Enable Fullscreen"), default=False, help_text=_("Enable/disable fullscreen for this gallery"))
+    fullscreen = models.BooleanField(_("Enable Fullscreen Button"), default=False)
 
     pager = models.BooleanField(_("Enable Pager"), default=False, help_text=_("Enable/disable pager for this gallery"))
 
