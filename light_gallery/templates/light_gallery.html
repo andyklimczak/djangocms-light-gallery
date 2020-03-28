@@ -10,42 +10,42 @@
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="{% static 'js/lightgallery.min.js' %}"></script>
+<script defer type="text/javascript" src="{% static 'js/lightgallery.min.js' %}"></script>
 {% endaddtoblock %}
 {% if thumbnails %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-thumbnail.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-thumbnail.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 {% if zoom %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-zoom.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-zoom.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 {% if fullscreen %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-fullscreen.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-fullscreen.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 {% if pager %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-pager.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-pager.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 {% if hash %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-hash.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-hash.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 {% if share %}
   {% addtoblock "js" %}
-    <script type="text/javascript" src="{% static 'js/lg-share.min.js' %}"></script>
+    <script defer type="text/javascript" src="{% static 'js/lg-share.min.js' %}"></script>
   {% endaddtoblock %}
 {% endif %}
 
 {% addtoblock "js" %}
 <script type="text/javascript">
-  $(document).ready(function() {
+  window.addEventListener('load', function() {
     $("#light-gallery-{{ id }}").lightGallery({
       mode: "{{ mode }}",
       cssEasing: "{{ cssEasing }}",
@@ -90,7 +90,6 @@
       pullCaptionUp: {{ pullCaptionUp|lower }},
       enableThumbDrag: {{ enableThumbDrag|lower }},
       enableThumbSwipe: {{ enableThumbSwipe|lower }},
-      swipeThreshold: {{ swipeThreshold }},
       {% endif %}
       {% if zoom %}
       zoom: {{ zoom|lower }},
