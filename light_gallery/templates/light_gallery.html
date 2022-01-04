@@ -115,7 +115,7 @@
 
 <div id="light-gallery-{{ id }}" class="light-gallery-plugin">
   {% for image in images %}
-  <a href="{{MEDIA_URL}}{{ image.file }}">
+  <a href="{{ image.file.url }}">
     <img src="{% thumbnail image.file pageThumbWidthHeight upscale crop %}"></img>
   </a>
   {% endfor %}
