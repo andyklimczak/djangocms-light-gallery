@@ -15,6 +15,8 @@ class LightGallery(CMSPlugin):
     )
     pageThumbWidth = models.CharField(_("Page Thumb Width"), max_length=255, default="150", help_text=_("Width of thumbnail on page"))
     pageThumbHeight = models.CharField(_("Page Thumb Height"), max_length=255, default="150", help_text=_("Height of thumbnail on page"))
+    pageThumbMarginHorizontal = models.CharField(_("Page Thumb Horizontal Margin"), max_length=255, default="0px", help_text=_("Horizontal margin of thumbnail on page"))
+    pageThumbMarginVertical = models.CharField(_("Page Thumb Vertical Margin"), max_length=255, default="5px", help_text=_("Vertical margin of thumbnail on page"))
 
     mode = models.CharField(_("Mode"), choices=MODES, default=MODES[0], help_text=_("Type of transition between images"), max_length=255)
     cssEasing = models.CharField(_("CSS Easing"), max_length=255, default="ease", help_text=_("Type of easing to be used for css animations"))
