@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='lightgallery',
             name='pageThumbMarginHorizontal',
-            field=models.CharField(default='5px', help_text='Horizontal margin of thumbnail on page', max_length=255, verbose_name='Page Thumb Horizontal Margin'),
+            field=models.CharField(default='0px', help_text='Horizontal margin of thumbnail on page', max_length=255, verbose_name='Page Thumb Horizontal Margin'),
         ),
         migrations.AddField(
             model_name='lightgallery',
