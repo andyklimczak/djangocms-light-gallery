@@ -16,7 +16,9 @@ class LightGallery(CMSPluginBase):
             'fields': [
                 'folder',
                 ('pageThumbWidth',
-                'pageThumbHeight',),
+                'pageThumbHeight',
+                'pageThumbMarginVertical',
+                'pageThumbMarginHorizontal',),
             ]
         }),
         (_('Toolbar Settings'), {
@@ -119,6 +121,8 @@ class LightGallery(CMSPluginBase):
         context.update({
             'images': instance.get_folder_images(),
             'pageThumbWidthHeight': instance.parse_page_thumb_width_height(),
+            'pageThumbMarginHorizontal': instance.pageThumbMarginHorizontal,
+            'pageThumbMarginVertical': instance.pageThumbMarginVertical,
             'mode': instance.mode,
             'cssEasing': instance.cssEasing,
             'easing': instance.easing,
@@ -141,7 +145,6 @@ class LightGallery(CMSPluginBase):
             'preload': instance.preload,
             'showAfterLoad': instance.showAfterLoad,
             'nextHtml': instance.nextHtml,
-            'nextHtml': instance.nextHtml,
             'index': instance.index,
             'iframeMaxWidth': instance.iframeMaxWidth,
             'download': instance.download,
@@ -161,7 +164,6 @@ class LightGallery(CMSPluginBase):
             'pullCaptionUp': instance.pullCaptionUp,
             'enableThumbDrag': instance.enableThumbDrag,
             'enableThumbSwipe': instance.enableThumbSwipe,
-            'swipeThreshold': instance.swipeThreshold,
             'id': instance.generate_id(),
             'fullscreen': instance.fullscreen,
             'zoom': instance.zoom,
@@ -180,7 +182,7 @@ class LightGallery(CMSPluginBase):
             'googlePlusDropdownText': instance.googlePlusDropdownText,
             'pinterest': instance.pinterest,
             'pinterestDropdownText': instance.pinterestDropdownText,
-        });
+        })
         return context
 
 plugin_pool.register_plugin(LightGallery)
