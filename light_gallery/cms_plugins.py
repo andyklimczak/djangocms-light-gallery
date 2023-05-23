@@ -1,6 +1,10 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django.utils.translation import ugettext_lazy as _
+import django
+if django.VERSION[0] < 4:
+    from django.utils.translation import ugettext_lazy as _
+else:
+    from django.utils.translation import gettext_lazy as _
 
 from .models import LightGallery
 
