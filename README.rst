@@ -36,3 +36,12 @@ Should now see ``Light Gallery`` as a component in django CMS
 
 .. |PyPI version| image:: https://badge.fury.io/py/djangocms-light-gallery.svg
    :target: https://badge.fury.io/py/djangocms-light-gallery
+
+Publishing
+============
+
+    pip install -U pip setuptools twine divio-cli
+    python setup.py sdist
+    twine upload dist/djangocms_light_gallery-1.2.1.tar.gz
+    divio addon validate
+    divio addon upload
