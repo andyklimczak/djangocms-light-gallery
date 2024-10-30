@@ -7,8 +7,6 @@ django CMS Light Gallery
 django CMS plugin for `Light Gallery
 1.4.0 <https://github.com/sachinchoolur/lightGallery>`__
 
-`Example light gallery using default settings <https://andy-djangocms-test.herokuapp.com/light-gallery/>`__
-
 Installation
 ============
 
@@ -28,7 +26,7 @@ Then add the plugin to settings.py ::
 Run the migrations ::
 
     python manage.py migrate light_gallery
-    
+
 This plugin relies on javascript, ensure you have a js block in your template ::
 
     {% render_block "js" %}
