@@ -1,5 +1,9 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+import django
+if django.VERSION[0] < 4:
+    from django.utils.translation import ugettext_lazy as _
+else:
+    from django.utils.translation import gettext_lazy as _
 from cms.models.pluginmodel import CMSPlugin
 from filer.fields.folder import FilerFolderField
 from filer.models.imagemodels import Image
