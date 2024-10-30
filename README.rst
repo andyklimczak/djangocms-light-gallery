@@ -40,6 +40,8 @@ Should now see ``Light Gallery`` as a component in django CMS
 Publishing
 ============
 
+.. code-block:: shell
+
     pip install -U pip setuptools twine divio-cli
     python setup.py sdist
     twine upload dist/djangocms_light_gallery-1.2.1.tar.gz
